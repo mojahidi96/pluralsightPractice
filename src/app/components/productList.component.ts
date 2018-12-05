@@ -1,14 +1,18 @@
-import { Component } from "@angular/core";
-
+import { Component, OnInit } from "@angular/core";
+import { from } from "rxjs";
 @Component({
   selector: "app-product-list",
-  templateUrl: "productList.component.html",
+  templateUrl: "productList.component.html"
 })
-export class ProductListComponent {
+export class ProductListComponent implements OnInit {
   pageTitle: String = "Product list";
   imageWidth: Number = 50;
   imageHeight: Number = 50;
   isShowImage: Boolean = false;
+  // filterText: String;
+  _filterText: string;
+
+  filterProducts: any;
   products: any = [
     {
       productId: 1,
@@ -33,7 +37,32 @@ export class ProductListComponent {
         "https://openclipart.org/image/300px/svg_to_png/58471/garden_cart.png"
     }
   ];
+  ratingMessage: string;
   toggleImage() {
     this.isShowImage = !this.isShowImage;
+  }
+  ngOnInit() {
+    this.filterProducts = this.products;
+  }
+  get filterText() {
+    return this._filterText;
+  }
+
+  set filterText(value: string) {
+    this._filterText = value;
+    this.filterProducts = this.filterText
+      ? this.getFilteredProducts()
+      : this.products;
+  }
+  getFilteredProducts() {
+    return (this.filterProducts = this.products.filter(
+      item =>
+        item.productName
+          .toLowerCase()
+          .indexOf(this.filterText.toLowerCase()) !== -1
+    ));
+  }
+  getStarRate(message: string) {
+    this.ratingMessage = message;
   }
 }
