@@ -1,0 +1,74 @@
+<div class="panel panel-primary">
+  <div class="panel-heading"></div>
+
+  <div class="panel-body">
+    <form
+      class="form-horizontal"
+      novalidate
+      (ngSubmit)="submit(loginForm)"
+      #loginForm="ngForm"
+      autocomplete="off"
+    >
+      <fieldset>
+        <div class="form-group">
+          <label class="col-md-2 control-label" for="userNameId"
+            >User Name</label
+          >
+
+          <div class="col-md-8">
+            <input
+              class="form-control"
+              id="userNameId"
+              type="text"
+              placeholder="User Name (required)"
+              (ngModel) = "userName"
+              required
+              name="userName"
+            />
+            <span class="help-block">
+              <span> User name is required. </span>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-2 control-label" for="passwordId"
+            >Password</label
+          >
+
+          <div class="col-md-8">
+            <input
+              class="form-control"
+              id="passwordId"
+              type="password"
+              (ngModel) = "password"
+              placeholder="Password (required)"
+              required
+              name="password"
+            />
+            <span class="help-block">
+              <span> Password is required. </span>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-md-4 col-md-offset-2">
+            <span>
+              <button
+                class="btn btn-primary"
+                type="submit"
+                style="width:80px;margin-right:10px"
+                [disabled]="!loginForm.valid"
+              >
+                Log In
+              </button>
+            </span>
+            <span> <a class="btn btn-default"> Cancel </a> </span>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+    <div class="has-error"></div>
+  </div>
+</div>

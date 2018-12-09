@@ -5,10 +5,11 @@ import { ActivatedRoute, Router } from "@angular/router";
   templateUrl: "product.details.component.html"
 })
 export class ProductDetailsComponent implements OnInit {
-  pageTitle: string = "hel";
+  pageTitle = "hel";
+  product: any;
   ngOnInit(): void {
     this.pageTitle = "hello"; //+`Id of product ${this.route.snapshot.paramMap.get("id")}`;
-    console.log(this.route);
+    this.product = this.route.snapshot.data["product"];
   }
   back() {
     this.router.navigate(["product"]);

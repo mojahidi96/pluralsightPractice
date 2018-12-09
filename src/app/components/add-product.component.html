@@ -1,0 +1,31 @@
+<div class="panel panel-primary">
+  <div class="panel-heading"></div>
+
+  <div class="panel-body">
+    <div class="wizard">
+      <a [routerLink]="['info']" routerLinkActive="active"> Basic Information <span></span> </a>
+      <a [routerLink]="['tag']" routerLinkActive="active"> Search Tags <span></span> </a>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+
+  <div class="panel-footer">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-2">
+        <span>
+          <button
+            class="btn btn-primary"
+            type="button"
+            style="width:80px;margin-right:10px"
+          >
+            Save
+          </button>
+        </span>
+        <span> <a class="btn btn-default" [routerLink]="['/product']" > Cancel </a> </span>
+        <span> <a class="btn btn-default" > Delete </a> </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="has-error"></div>
+</div>

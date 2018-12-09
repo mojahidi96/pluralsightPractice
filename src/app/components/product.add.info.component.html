@@ -1,0 +1,69 @@
+<div class="panel-body">
+  <form class="form-horizontal" novalidate>
+    <fieldset>
+      <legend>Basic Product Information</legend>
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="productNameId"
+          >Product Name</label
+        >
+
+        <div class="col-md-8">
+          <input
+            class="form-control"
+            id="productNameId"
+            type="text"
+            placeholder="Name (required)"
+            required
+            minlength="3"
+            [(ngModel)]="product.productName"
+            name="productName"
+          />
+          <span class="help-block">
+            <span> Product name is required. </span>
+            <span> Product name must be at least three characters. </span>
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="productCodeId"
+          >Product Code</label
+        >
+
+        <div class="col-md-8">
+          <input
+            class="form-control"
+            id="productCodeId"
+            type="text"
+            placeholder="Code (required)"
+            required
+            name="productCode"
+            [(ngModel)]="product.productCode"
+          />
+          <span class="help-block">
+            <span> Product code is required. </span>
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="descriptionId"
+          >Description</label
+        >
+
+        <div class="col-md-8">
+          <textarea
+            class="form-control"
+            id="descriptionId"
+            placeholder="Description"
+            rows="3"
+            name="description"
+            [(ngModel)]="product.productCode"
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="has-error"></div>
+    </fieldset>
+  </form>
+</div>

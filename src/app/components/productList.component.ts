@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { from } from "rxjs";
 import { ProductService } from "src/app/shared/product.service";
+import { products } from "../products";
 @Component({
   selector: "app-product-list",
   templateUrl: "productList.component.html"
@@ -12,15 +13,17 @@ export class ProductListComponent implements OnInit {
   isShowImage: Boolean = false;
   _filterText: string;
   filterProducts: any;
-  products: any;
+  products: any = products;
   ratingMessage: string;
   constructor(private productServic: ProductService) {}
   toggleImage() {
     this.isShowImage = !this.isShowImage;
   }
   ngOnInit() {
+    this.productServic.isProductLoaded = false;
     this.productServic.getProducts().subscribe(response => {
       this.products = response;
+      this.productServic.isProductLoaded = true;
       this.filterProducts = this.products;
     });
   }

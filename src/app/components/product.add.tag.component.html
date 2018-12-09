@@ -1,0 +1,69 @@
+<div class="panel-body">
+  <form class="form-horizontal"
+        novalidate>
+      <fieldset>
+          <legend>Product Search Tags</legend>
+          <div class="form-group"
+                 >
+              <label class="col-md-2 control-label" for="categoryId">Category</label>
+              <div class="col-md-8">
+                  <input class="form-control"
+                         id="categoryId"
+                         type="text"
+                         placeholder="Category (required)"
+                         required
+                         minlength="3"
+
+                         name="category"
+                          />
+                  <span class="help-block" >
+                      <span >
+                          A category must be entered.
+                      </span>
+                      <span>
+                          The category must be at least 3 characters in length.
+                      </span>
+                  </span>
+              </div>
+          </div>
+
+          <div class="form-group"
+                  >
+              <label class="col-md-2 control-label" for="tagsId">Search Tags</label>
+              <div class="col-md-8">
+                  <input class="form-control"
+                         id="tagsId"
+                         type="text"
+                         placeholder="Search keywords separated by commas"
+                         minlength="3"
+
+                         name="tags"
+                         />
+                  <span class="help-block">
+                      <span>
+                          The search tag must be at least 3 characters in length.
+                      </span>
+                  </span>
+              </div>
+              <div class="col-md-1">
+                  <button type="button"
+                          class="btn btn-default"
+                        >
+                      Add
+                  </button>
+              </div>
+          </div>
+          <div class="row col-md-8 col-md-offset-2">
+              <span >
+                  <button class="btn btn-default"
+                          style="font-size:smaller;margin-bottom:12px"
+                          >
+
+                      <span class="glyphicon glyphicon-remove"></span>
+                  </button>
+              </span>
+          </div>
+          <div class="has-error" ></div>
+      </fieldset>
+  </form>
+</div>

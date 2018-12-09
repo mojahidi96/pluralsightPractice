@@ -24,6 +24,7 @@
             <th>Available</th>
             <th>Price</th>
             <th>5 Star Rating</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -37,7 +38,7 @@
               />
             </td>
             <td>
-              <a [routerLink]="['/product', product.productId]">
+              <a [routerLink]="['/product', product.id]">
                 {{ product.productName }}</a
               >
             </td>
@@ -50,6 +51,7 @@
                 (showRating)="getStarRate($event)"
               ></app-star>
             </td>
+            <td><button class="btn btn-primary">edit</button></td>
           </tr>
         </tbody>
       </table>
