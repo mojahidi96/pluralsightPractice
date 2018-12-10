@@ -3,7 +3,7 @@ import { Routes, RouterModule } from "@angular/router";
 import { MessageComponent } from "./message.component";
 
 const routes: Routes = [
-  { path: "message", component: MessageComponent, outlet: "message" }
+  { path: "message", component: MessageComponent, outlet: "popup" }
 ];
 
 @NgModule({

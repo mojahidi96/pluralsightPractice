@@ -9,6 +9,7 @@ import {
   Router
 } from "@angular/router";
 import { ProductService } from "./shared/product.service";
+import { MessageService } from "./message/message.service";
 
 @Component({
   selector: "app-root",
@@ -24,7 +25,8 @@ export class AppComponent {
   constructor(
     private loginService: LoginService,
     private router: Router,
-    private productServic: ProductService
+    private messageService: MessageService,
+    private productService: ProductService
   ) {
     this.router.events.subscribe(navigateEvent =>
       this.checkNavigation(navigateEvent)
@@ -41,5 +43,14 @@ export class AppComponent {
     ) {
       this.loading = false;
     }
+  }
+
+  displayMessages() {
+    this.router.navigate([{ outlets: { popup: ["message"] } }]);
+    this.messageService.isMessageShow = true;
+  }
+  hideMessages() {
+    this.router.navigate([{ outlets: { popup: null } }]);
+    this.messageService.isMessageShow = false;
   }
 }

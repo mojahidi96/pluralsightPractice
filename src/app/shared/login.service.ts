@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { IUser } from "./iuser";
 import { Router } from "@angular/router";
+import { MessageService } from "../message/message.service";
 
 @Injectable({
   providedIn: "root"
@@ -8,7 +9,7 @@ import { Router } from "@angular/router";
 export class LoginService {
   currentUser: IUser;
   navigateUrl: string;
-  constructor(private router: Router) {}
+  constructor(private router: Router, private messageService: MessageService) {}
   isUserLoggedIn() {
     return this.currentUser;
   }
@@ -18,6 +19,7 @@ export class LoginService {
       return false;
     }
     if (userName.toLowerCase() === "admin") {
+      this.messageService.logMessage("Please enter username and password");
       this.currentUser = {
         id: 1,
         userName: userName,

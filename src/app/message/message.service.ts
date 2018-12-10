@@ -5,7 +5,10 @@ import { Injectable } from "@angular/core";
 })
 export class MessageService {
   messageList: string[];
-  constructor() {}
+  isMessageShow: boolean;
+  constructor() {
+    this.messageList = [];
+  }
   logMessage(message: string) {
     this.messageList.push(message);
   }

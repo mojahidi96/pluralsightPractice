@@ -17,7 +17,8 @@ import { ProductTagComponent } from "./components/product.add.tag.component";
 import { ProductdetailsService } from "./productdetails.service";
 import { LoginComponent } from "./components/login.component";
 import { AuthGuard } from "./shared/auth.guard";
-import { MessageModule } from './message/message.module';
+import { MessageModule } from "./message/message.module";
+import { ProducteditGuard } from "./shared/productedit.guard";
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { MessageModule } from './message/message.module';
   imports: [
     BrowserModule,
     FormsModule,
+    MessageModule,
     RouterModule.forRoot([
       { path: "home", component: HomeComponent },
       {
@@ -52,6 +54,7 @@ import { MessageModule } from './message/message.module';
       {
         path: "product/:id/add",
         component: AddProductComponent,
+        canDeactivate: [ProducteditGuard],
         resolve: { product: ProductdetailsService },
         children: [
           { path: "", pathMatch: "full", redirectTo: "info" },
@@ -63,8 +66,7 @@ import { MessageModule } from './message/message.module';
       { path: "", redirectTo: "home", pathMatch: "full" },
       { path: "**", component: PageNotFoundComponent }
     ]),
-    HttpClientModule,
-    MessageModule,
+    HttpClientModule
   ],
   providers: [ProductdetailsService],
   bootstrap: [AppComponent]

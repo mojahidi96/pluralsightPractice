@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { MessageService } from "./message.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-message",
@@ -17,8 +18,10 @@ import { MessageService } from "./message.service";
   styles: []
 })
 export class MessageComponent implements OnInit {
-  constructor(private messageService: MessageService) {}
+  constructor(private messageService: MessageService, private router: Router) {}
 
   ngOnInit() {}
-  close() {}
+  close() {
+    this.router.navigate([{ outlets: { popup: null } }]);
+  }
 }

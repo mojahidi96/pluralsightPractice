@@ -1,6 +1,6 @@
 <span
   class="glyphicon glyphicon-refresh glyphicon-spin spinner"
-  *ngIf="loading || !productServic.isProductLoaded"
+  *ngIf="loading || !productService.isProductLoaded"
 ></span>
 <div>
   <nav class="navbar navbar-default">
@@ -19,17 +19,17 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <!--
-          <li *ngIf="authService.isLoggedIn()">
+
+          <!-- <li *ngIf="authService.isLoggedIn()">
               <a>Welcome {{ authService.currentUser.userName }}</a>
-          </li>
-          <li *ngIf="!messageService.isDisplayed">
+          </li> -->
+           <li *ngIf="!messageService.isMessageShow">
               <a (click)="displayMessages()">Show Messages</a>
           </li>
-          <li *ngIf="messageService.isDisplayed">
+          <li *ngIf="messageService.isMessageShow">
               <a (click)="hideMessages()">Hide Messages</a>
           </li>
-        -->
+
         <li *ngIf="!loginService.isUserLoggedIn()">
           <a [routerLink]="['/login']">Log In</a>
         </li>
@@ -42,7 +42,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-10"><router-outlet></router-outlet></div>
-      <div class="col-md-2"><router-outlet name="message"></router-outlet></div>
+      <div class="col-md-2"><router-outlet name="popup"></router-outlet></div>
     </div>
   </div>
 </div>
